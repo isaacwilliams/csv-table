@@ -12,14 +12,18 @@ renderTableTo.forEach((node) => {
     const excludeCols = node.dataset.csvExclude && node.dataset.csvExclude.split(',').map(val => val.trim());
     const rollerType = node.dataset.csvRollerType || "linked";
     const rollerDice = node.dataset.csvRollerDice;
+    const rollerButtonTitle = node.dataset.csvRollerButton;
+    const rollerMaxResults = node.dataset.csvRollerMaxResults && parseInt(node.dataset.csvRollerMaxResults);
 
     ReactDOM.render(
         <App url={url}
             includeTable={includeTable}
             includeRoller={includeRoller}
+            excludeCols={excludeCols}
             rollerType={rollerType}
             rollerDice={rollerDice}
-            excludeCols={excludeCols} />,
+            rollerMaxResults={rollerMaxResults}
+            rollerButtonTitle={rollerButtonTitle} />,
     node);
 });
 

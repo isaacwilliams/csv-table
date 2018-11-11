@@ -60,15 +60,15 @@ class Roller extends Component {
     }
 
     render() {
-        const { maxResults = 1 } = this.props;
+        const { rollerMaxResults = 1, rollerButtonTitle } = this.props;
         const { results } = this.state;
 
         return (
             <div className="csv-roller">
-                <button onClick={() => this.roll()}>Roll</button>
+                <button onClick={() => this.roll()}>{rollerButtonTitle || 'Roll'}</button>
 
                 <div className="csv-roller-results">
-                    {results.slice(-maxResults).reverse().map((rolls, i) => (
+                    {results.slice(-rollerMaxResults).reverse().map((rolls, i) => (
                         <RollerResult key={i + rolls[0]} rolls={rolls} />
                     ))}
                 </div>

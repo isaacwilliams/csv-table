@@ -37,25 +37,17 @@ class App extends Component {
     }
 
     render() {
-        const { includeTable, includeRoller, rollerType, rollerDice, excludeCols } = this.props;
+        const { includeRoller, includeTable } = this.props;
         const { isLoading, header, body } = this.state;
 
         if (isLoading || !header || !body || body.length === 0) return <Loader />;
 
         return [
             includeRoller && (
-                <Roller key="roller"
-                    header={header}
-                    body={body}
-                    rollerType={rollerType}
-                    rollerDice={rollerDice}
-                    excludeCols={excludeCols} />
+                <Roller key="roller" {...this.props} header={header} body={body} />
             ),
             includeTable && (
-                <Table key="table"
-                    header={header}
-                    body={body}
-                    excludeCols={excludeCols} />
+                <Table key="table" {...this.props} header={header} body={body} />
             )
         ];
     }

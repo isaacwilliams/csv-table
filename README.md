@@ -23,4 +23,6 @@ The div is configured using these data attributes. All attributes are optional e
 - **data-csv-roller**: Set this to "true" to render a roller from the CSV.
 - **data-csv-exclude**: A comma separated list of columns to exclude from the table or roller.
 - **data-csv-roller-type**: Set this to "unlinked" to direct the roller to pick from each column independently, or "linked" to roll once and read across the table.
-- **data-csv-roller-dice**: Set using standard dice notation to override the rolling behaviour. If this is not set the roller will look in the header row for a dice notation, and if this is not found will simply roll on the whole table.
+- **data-csv-roller-dice**: Set using standard dice notation to override the rolling behaviour. Defaults to any dice notation found in a header row, or the full size of the table.
+- **data-csv-roller-max-results**: The maximum number of results to display when rolling. Defaults to 1.
+- **data-csv-roller-button**: The title of the roller's button. Defaults to "Roll".
